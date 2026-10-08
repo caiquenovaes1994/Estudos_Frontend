@@ -4,15 +4,14 @@ Repositório dedicado aos componentes, interfaces e experimentos práticos de de
 
 ## 📁 Conteúdo do Repositório
 
-- **Accordion1**: Componente de acordeão expansível.
-- **Cards1**: Cartões de exibição interativos.
-- **Cartão**: Estilização e componentes de cartões.
-- **Dropdown1**: Menus suspensos interativos.
-- **Footer1 & Footer2**: Modelos de rodapé responsivos.
-- **Login1 a Login7**: Variações de páginas e formulários de autenticação.
-- **Menu1 & Menu2**: Menus de navegação responsivos com transições.
-- **Navbar1 & Navbar2**: Barras de navegação modernas.
-- **Parallax1 & Parallax2**: Efeitos visuais de rolagem Parallax.
-- **Sidebar1 a Sidebar3**: Barras laterais retráteis e interativas.
-- **Transições1**: Exemplos e testes de animações e transições.
-- **Wave1**: Efeitos visuais e estilizações em ondas.
+- **Accordions**: Componente de acordeão expansível.
+- **Cards**: Cartões de exibição interativos.
+- **Dropdowns**: Menus suspensos interativos.
+- **Footers**: Modelos de rodapé responsivos.
+- **Logins**: Variações de páginas e formulários de autenticação.
+- **Menus**: Menus de navegação responsivos com transições.
+- **Navbars**: Barras de navegação modernas.
+- **Parallaxes**: Efeitos visuais de rolagem Parallax.
+- **Sidebars**: Barras laterais retráteis e interativas.
+- **Transitions**: Exemplos e testes de animações e transições.
+- **Waves**: Efeitos visuais e estilizações em ondas.
