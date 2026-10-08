@@ -1,0 +1,41 @@
+body {
+  background: #101010;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.checkbox {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.checkbox input {
+  position: absolute;
+  scale: 0;
+}
+
+.checkbox .check {
+  display: block;
+  width: inherit;
+  height: inherit;
+  border: 2px solid #555;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.checkbox input:checked ~ .check {
+  width: 14px;
+  rotate: 45deg;
+  translate: 10px -6px;
+  border-color: #44fdcf;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 0;
+}
