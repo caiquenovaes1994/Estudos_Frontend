@@ -1,0 +1,145 @@
+:root {
+    --page-bg-light: #ffffff;
+    --page-bg-dark: #0c101c;
+    --page-bg: var(--page-bg-light);
+    --page-fg: var(--page-bg-dark);
+    --enter-delay: 0.2s;
+}
+
+:root[data-theme="dark"] {
+    --page-bg: var(--page-bg-dark);
+    --page-fg: var(--page-bg-light);
+}
+
+.bubbles__second[data-target="light"] {
+    background: var(--page-bg-light);
+}
+
+.bubbles__second[data-target="dark"] {
+    background: var(--page-bg-dark);
+}
+
+body {
+    background: var(--page-bg);
+}
+
+section {
+    height: 100vh;
+    background: var(--page-bg);
+    color: var(--page-fg);
+}
+
+nav {
+    position: fixed;
+    top: o;
+    left: 0;
+    right: 0;
+    height: 142px;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav h1 {
+    animation: appear 0.25s var(--enter-delay) both;
+}
+
+nav ul {
+    animation: appear 0.25s calc(var(--enter-delay) * 2) both;
+}
+
+nav a {
+    color: inherit;
+    cursor: pointer;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+nav a[aria-current="page"] {
+    color: #658dfd;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.bubbles {
+    --size: round(250vw, 2px);
+    --bubble-duration: 1000ms;
+}
+
+.bubbles__first .bubbles__second {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: round(calc(50% - var(--size) / 2), 1px);
+    translate: 0 100%;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--size);
+    animation-duration: var(--bubble-duration);
+    animation-timing-function: ease-in-out;
+}
+
+.bubbles__first {
+    background: #416bdd;
+}
+
+.bubbles.covering .bubbles__first {
+    animation-name: bubble-move;
+    animation-fill-mode: forwards;
+}
+
+.bubbles.covering .bubbles__second {
+    animation-name: bubble-second-move;
+    animation-fill-mode: forwards;
+}
+
+.bubbles.covering .bubbles__second {
+    animation-name: hold;
+    animation-duration: var(--enter-delay);
+}
+
+.entering .bubbles__second {
+    background: var(--page-bg);
+    animation-name: hold;
+    animation-duration: var(--enter-delay);
+}
+
+@keyframes hold {
+    from, to {
+        translate: 0 0;
+    }
+}
+
+@keyframes bubble-move {
+    20% { border-radius: var(--size); }
+    50%, 100% { translate: 0 0; border-radius: 0; }
+}
+
+@keyframes bubble-second-move {
+    30% {
+        translate: 0 20%;
+    }
+    50% {
+        border-radius: var(--size);
+    }
+    100% {
+        translate: 0 0;
+        border-radius: 0;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        translate: 0 100%;
+    }
+    100% {
+        opacity: 1;
+        translate: 0;
+    }
+}

@@ -1,0 +1,220 @@
+:root {
+    --color-primary: #8a989d;
+    --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #080a0f;
+    /* Fundo nebuloso/esfumaçado para dar o mesmo contraste e profundidade da foto */
+    background-image: 
+        radial-gradient(ellipse 60% 40% at 75% 30%, rgba(255, 255, 255, 0.08), transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 60%, rgba(255, 255, 255, 0.05), transparent 70%),
+        radial-gradient(circle 350px at 50% 85%, rgba(255, 255, 255, 0.07), transparent 60%);
+    background-attachment: fixed;
+    font-family: var(--font-family);
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Card flutuante com efeito glassmorphism */
+footer {
+    position: fixed;
+    left: 48px;
+    right: 48px;
+    bottom: 48px;
+    padding: 44px 48px 36px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(18, 21, 26, 0.6);
+    backdrop-filter: blur(28px) saturate(130%);
+    -webkit-backdrop-filter: blur(28px) saturate(130%);
+    box-shadow: 
+        0 25px 60px -15px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.top, .bottom {
+    display: flex;
+}
+
+.top {
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 48px;
+    margin-bottom: 36px;
+}
+
+.top :is(.left, .right) {
+    flex: 1 1 50%;
+}
+
+.top .left {
+    max-width: 480px;
+}
+
+/* Cabeçalhos de seção */
+h2 {
+    margin: 0 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--color-primary);
+}
+
+/* Frase de impacto */
+blockquote {
+    margin: 0 0 28px 0;
+    color: #ffffff;
+    font-size: clamp(26px, 2.5vw, 32px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+/* Botão "Schedule a call" exatamente como na referência */
+button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    background-color: #e2e8f0;
+    color: #000017;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #ffffff;
+    transform: translateY(-1px);
+}
+
+button .material-symbols-outlined {
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+button:hover .material-symbols-outlined {
+    transform: translateX(3px);
+}
+
+/* Colunas Company & Resources */
+.links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 72px;
+    padding-right: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 100px;
+}
+
+ul li h2 {
+    margin-bottom: 6px;
+}
+
+ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.95;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+ul li a:hover {
+    opacity: 0.7;
+}
+
+/* Linha divisória inferior */
+.bottom {
+    padding-top: 24px;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 24px;
+}
+
+.bottom .left p {
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* Ícones sociais brancos */
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.socials a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.socials a:hover {
+    opacity: 0.65;
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 860px) {
+    footer {
+        position: relative;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 40px 20px 20px;
+        padding: 32px 24px;
+    }
+
+    .top {
+        flex-direction: column;
+        gap: 36px;
+    }
+
+    .links {
+        justify-content: flex-start;
+        gap: 56px;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 540px) {
+    .links {
+        gap: 40px;
+    }
+
+    .bottom {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 18px;
+    }
+}

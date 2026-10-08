@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+    <defs>
+        <linearGradient id="gonakiGrad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#6366F1" />
+            <stop offset="1" stop-color="#8B5CF6" />
+        </linearGradient>
+        <linearGradient id="glowGrad" x1="8" y1="6" x2="24" y2="26" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFFFFF" />
+            <stop offset="1" stop-color="#DDD6FE" />
+        </linearGradient>
+    </defs>
+    <rect width="32" height="32" rx="9" fill="url(#gonakiGrad)" />
+    <!-- Stylized modern "G" mark -->
+    <path d="M22 12C20.8 10 18.2 8.5 15.5 8.5C11.3579 8.5 8 11.8579 8 16C8 20.1421 11.3579 23.5 15.5 23.5C19.2 23.5 22 21 22.8 17.5H15.5" 
+          stroke="url(#glowGrad)" 
+          stroke-width="2.75" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+    <circle cx="23" cy="11" r="1.5" fill="#FFFFFF" />
+</svg>

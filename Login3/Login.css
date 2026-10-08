@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", system-ui, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e9ecf2;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    width: 660px;
+    height: 520px;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 8px solid #ffffff;
+    box-shadow: 0 12px 80px rgba(41, 30, 113, 0.12);
+}
+
+.card-bg {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), url("./hero.jpg") center/cover no-repeat;
+    border-radius: 18px;
+    translate: 100% 0;
+    transition: 0.65s ease-in-out;
+}
+
+/* Corrigido: .card.register em vez de .card-register */
+.card.register .card-bg {
+    translate: 0 0;
+}
+
+.hero,
+.form {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.65s ease-in-out;
+}
+
+/* Estado inicial: Login visível */
+:is(.hero, .form).login {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Quando registrado: esconde Login e exibe Register */
+.card.register :is(.hero, .form).login {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.card.register :is(.hero, .form).register {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Posicionamento e translação do Hero */
+.hero.login {
+    left: 50%;
+    translate: 0;
+}
+
+/* Corrigido: .card.register .hero.login em vez de .card .hero.login */
+.card.register .hero.login {
+    translate: 100% 0;
+}
+
+.hero.register {
+    left: 0;
+    translate: -100% 0;
+}
+
+.card.register .hero.register {
+    translate: 0;
+}
+
+/* Posicionamento e translação dos Formulários */
+.form.login {
+    left: 0;
+    translate: 0;
+}
+
+.card.register .form.login {
+    translate: 100% 0;
+}
+
+.form.register {
+    left: 50%;
+    translate: -100% 0;
+}
+
+.card.register .form.register {
+    translate: 0;
+}
+
+/* Estilos do Hero */
+.hero {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: #f9f9f9;
+    text-align: center;
+    padding: 0 28px;
+}
+
+.hero h2 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.hero p {
+    margin: 0 0 6px;
+    opacity: 0.85;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.switch {
+    padding: 12px 46px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: inherit;
+    border: 0;
+    background: rgb(255 255 255 / 15%);
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.switch:hover {
+    color: #212625;
+    background: #f9f9f9;
+}
+
+/* Estilos dos Formulários e seus campos */
+.form {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
+}
+
+.form h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #212625;
+    margin-bottom: 14px;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px 14px;
+    margin: 5px 0;
+    background: #f4f5f7;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #1e293b;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form input:focus {
+    background: #ffffff;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+.password-field {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-field input {
+    margin: 5px 0;
+    padding-right: 36px;
+}
+
+.password-field .eye {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.password-field .eye:hover {
+    color: #212625;
+}
+
+.password-field .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.forgot {
+    align-self: flex-end;
+    font-size: 12px;
+    color: #6b7280;
+    text-decoration: none;
+    margin: 3px 0 10px;
+    transition: color 0.2s;
+}
+
+.forgot:hover {
+    color: #212625;
+    text-decoration: underline;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    background: #212625;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+.submit-btn:hover {
+    background: #374151;
+    transform: translateY(-1px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.or {
+    font-size: 11px;
+    color: #9ca3af;
+    margin: 12px 0 6px;
+    display: block;
+    text-align: center;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.socials-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+}
+
+.socials-btn:hover {
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+}
+
+.socials-btn img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}

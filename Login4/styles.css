@@ -1,0 +1,181 @@
+.card {
+    --color-primary: #755eff;
+    --color-muted: #a7a7ad;
+    --color-border: #d3d3dc;
+    --color-card: #ffffff;
+    position: relative;
+    overflow: hidden;
+    width: 660px;
+    height: 440px;
+    border-radius: 32px;
+    background: var(--color-card);
+    box-shadow: 0 12px 80px rgba(0, 0, 0, 0.12);
+}
+
+.toggle { display: none; }
+
+.card-bg {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 860px;
+    height: 440px;
+    rotate: -45deg;
+    transform-origin: 0% 100%;
+    background: var(--color-primary);
+}
+
+.card-bg-2 {
+    rotate: 0deg;
+    opacity: 0;
+    right: 0;
+    left: auto;
+    transform-origin: 100% 100%;
+}
+
+.toggle:not(:checked) ~ .card-bg-1 { 
+    animation: card-bg-login 1.2s both;
+}
+
+.toggle:checked ~ .card-bg-1 {
+    animation: card-bg-register 1.2s both;
+}
+
+.toggle:not(:checked) ~ .card-bg-2 {
+    animation: card-bg-2-register 1.2s both;
+}
+
+.toggle:checked ~ .card-bg-2 {
+    animation: card-bg-2-login 1.2s both;
+}
+
+.switch {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    display: grid;
+    align-content: start;
+    justify-content: center;
+    padding-top: 64px;
+}
+
+.switch.register {
+    translate: 100% 0;
+}
+
+.switch label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: 32px;
+    border: 1.5px solid rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+    transition: opacity 0.3s, translate 0.3s, background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.switch.register label {
+    translate: 100% 0;
+}
+
+.switch.login label {
+    translate: -100% 0;
+}
+
+.toggle:not(:checked) ~ .switch.login label, .toggle:checked ~ .switch.register label {
+    opacity: 1;
+    translate: 0;
+    pointer-events: auto;
+    transition: opacity 0.3s 0.85s, translate 0.3s 0.85s, background 0.25s, color 0.25s, border 0.25s;
+}
+
+.switch label:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--color-primary);
+}
+
+.switch label:hover .icon {
+    translate: 4px 0;
+}
+
+.icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: translate 0.2s ease;
+}
+
+.form {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    width: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    opacity: 0;
+    transition: 0.3s
+}
+
+.form.register {
+    translate: 100% 0;
+}
+
+.form.register form {
+    translate: 320px 0;
+}
+
+.form.login form {
+    translate: -320px 0;
+}
+
+.toggle:not(:checked) ~ .form.login form, .toggle:checked ~ .form.register form {
+    opacity: 1;
+    translate: 0;
+    transition: 0.4s 0.8s;
+}
+
+@keyframes card-bg-register {
+    0% { rotate: -45deg; }
+    50% { opacity: 1; }
+    50%, 100% { rotate: 0deg; }
+    50.01%, 100% { opacity: 0; }
+}
+
+@keyframes card-bg-login {
+    0% { opacity: 0; rotate: 0deg; }
+    50% { opacity: 1;}
+    50%, 100% {rotate: 0; }
+    50.01%, 100% {opacity: 1;}
+    100% { rotate: -45deg; }
+}
+
+@keyframes card-bg-2-register {
+    0%, 50% { opacity: 0; rotate: 0; }
+    50.01%, 100% {opacity: 1; rotate: 0deg; }
+    100% { opacity: 0; rotate: 45deg; }
+}
+
+@keyframes card-bg-2-login {
+    0% { opacity: 0; rotate: 0deg; }
+    50% { opacity: 1; rotate: 0deg; }
+    100% { opacity: 1; rotate: 45deg; }
+}

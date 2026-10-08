@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+    <defs>
+        <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6366F1" />
+            <stop offset="50%" stop-color="#8B5CF6" />
+            <stop offset="100%" stop-color="#D946EF" />
+        </linearGradient>
+        <linearGradient id="logoShine" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+        </linearGradient>
+    </defs>
+    <!-- Background rounded shape with gradient -->
+    <rect width="24" height="24" rx="7" fill="url(#logoBg)" />
+    <rect width="24" height="12" rx="7" fill="url(#logoShine)" />
+    <!-- Monogram Mark -->
+    <path d="M6.5 17.5V6.5L17.5 17.5V6.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="17.5" cy="6.5" r="1.6" fill="#38BDF8" />
+</svg>

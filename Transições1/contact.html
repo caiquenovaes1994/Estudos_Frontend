@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            try {
+                if (sessionStorage.getItem("entering")) {
+                    sessionStorage.removeItem("entering");
+                    document.documentElement.classList.add("entering");
+                }
+            } catch {}
+        </script>
+    </head>
+    <body>
+        <div class="bubbles">
+            <div class="bubbles__first"></div>
+            <div class="bubbles__second"></div>
+        </div>
+        <section>
+            <nav>
+                <h1>Contact</h1>
+                <ul>
+                    <li>
+                        <a href="index.html" data-theme="light">Home</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html" data-theme="dark">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" data-theme="light">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <script src="main.js"></script>
+    </body>
+</html>

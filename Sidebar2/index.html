@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+    <body>
+       <aside class="sidebar">
+        <div class="sidebar-inner">
+            <div class="brand">
+                <span class="brand-mark">
+                    <img src="logo.svg" />
+                </span>
+                <span class="brand-name label">Dashboard</span>
+            </div>
+            <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Toggle Sidebar">
+                <i data-lucide="panel-left"></i>
+            </button>
+            <hr class="divider" />
+            <div class="profile">
+                <span class="avatar">
+                    <img src="avatar.jpg" alt="Cristiano Ronaldo" />
+                </span>
+                <span class="profile-text label">
+                    <span class="profile-name">Cristiano Ronaldo</span>
+                    <span class="profile-role">
+                        Atacante
+                    </span>
+                </span>
+            </div>
+            <ul class="nav">
+                <li class="indicator" aria-hidden="true"></li>
+                <li>
+                    <button type="button" data-tip="Dashboard" class="active">
+                        <i data-lucide="layout-grid"></i>
+                        <span class="label">Dashboard</span>
+                        </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Products">
+                        <i data-lucide="package"></i>
+                        <span class="label">Products</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Categories">
+                        <i data-lucide="layers"></i>
+                        <span class="label">Categories</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Orders">
+                        <i data-lucide="shopping-cart"></i>
+                        <span class="label">Orders</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Customers">
+                        <i data-lucide="users"></i>
+                        <span class="label">Customers</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Sales Offers">
+                        <i data-lucide="badge-percent"></i>
+                        <span class="label">Sales Offers</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Dealership">
+                        <i data-lucide="building-2"></i>
+                        <span class="label">Dealership</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Locations">
+                        <i data-lucide="map-pin"></i>
+                        <span class="label">Locations</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Settings">
+                        <i data-lucide="settings"></i>
+                        <span class="label">Settings</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" data-tip="Logout">
+                        <i data-lucide="log-out"></i>
+                        <span class="label">Logout</span>
+                    </button>
+                </li>
+            </ul>
+            <button type="button" class="theme-toggle" id="themeToggle" data-tip="Dark Mode" aria-label="Toggle dark mode" aria-preset="false">
+                <i data-lucide="moon"></i>
+                <span class="theme-label label">Dark Mode</span>
+                <span class="switch"></span>
+            </button>
+        </div>
+       </aside>
+       <script type="text/javascript" src="main.js"></script> 
+    </body>
+</html>

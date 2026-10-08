@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #080b0f;
+    color: #f0f0f0;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.burger {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.08) url(./menu.svg) no-repeat center;
+    background-size: 28px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: background-color 0.25s, transform 0.2s, border-color 0.25s;
+}
+
+.burger:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.burger.open {
+    background-image: url(./close.svg);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.burger span {
+    display: none;
+}
+
+.background {
+    position: fixed;
+    z-index: 2;
+    top: 54px;
+    left: 54px;
+    translate: -50% -50%;
+    width: 60px;
+    height: 60px;
+    background: rgb(5 8 12 / 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s ease;
+}
+
+.background.open {
+    opacity: 1;
+    width: 300vmax;
+    height: 300vmax;
+    pointer-events: auto;
+}
+
+.menu {
+    position: fixed;
+    z-index: 3;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.menu nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: clamp(40px, 10vw, 120px);
+}
+
+.menu a {
+    color: #f9f9f9;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 500;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease;
+    display: inline-block;
+    letter-spacing: -0.01em;
+}
+
+.menu.open a {
+    opacity: 1;
+}
+
+.menu nav:hover > a {
+    opacity: 0.35;
+}
+
+.menu nav > a:hover {
+    opacity: 1;
+    transform: translateX(12px);
+    color: #ffffff;
+}
+
+.appear {
+    animation: appear 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        translate: 0 40px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 100px 15%;
+    transition: filter 0.6s ease, transform 0.6s ease;
+    background: radial-gradient(circle at 10% 20%, rgba(30, 41, 59, 0.4) 0%, transparent 60%),
+                linear-gradient(180deg, #0d131a 0%, #06090d 100%);
+}
+
+.content.open {
+    filter: blur(18px);
+    transform: scale(0.98);
+}
+
+.content h2 {
+    font-weight: 600;
+    font-size: clamp(36px, 5vw, 64px);
+    margin-bottom: 20px;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.content p {
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.7;
+    color: #94a3b8;
+    max-width: 640px;
+}

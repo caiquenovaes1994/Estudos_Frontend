@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: #eef2f7;
+    font-family: Arial, sans-serif;
+}
+
+.balance-card {
+    position: relative;
+    width: min(100%, 430px);
+    min-height: 255px;
+    padding: 28px;
+    overflow: hidden;
+    border-radius: 24px;
+    background: linear-gradient(135deg,#111827 0%, #312e81 52%, #6d28d9 100%);
+    color: #ffffff;
+    box-shadow: 0 25px 55px rgba(49, 46, 129, 0.3);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.balance-card:hover {
+    transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+    box-shadow: 0 35px 70 px rgba(49, 46, 129, 0.4);
+}
+
+.card-header, .balance-label, .card-footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bank-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.bank-logo {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.card-chip {
+    position: relative;
+    width: 45px;
+    height: 34px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #fde68a 0%, #d97706 100%);
+}
+
+.card-chip::before, .card-chip::after {
+    content: '';
+    position: absolute;
+    border: 1px solid rgba(120, 53, 15, 0.4);
+}
+
+.card-chip::after {
+    top: 0;
+    left: 50%;
+    height: 100%;
+}
+
+.balance-section {
+    position: relative;
+    z-index: 2;
+    margin: 34px 0 24px;
+}
+
+.balance-label {
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: rgba (255, 255, 255, 0.7);
+}
+
+.visibility-button {
+    display: inline-grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.visibility-button input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.show-icon, .hide-icon {
+    font-size: 14px;
+}
+
+.hide-icon {
+    display: none;
+}
+
+.visibility-button:has(input:checked) .show-icon {
+    display: none;
+}
+
+.visibility-button:has(input:checked) .hide-icon {
+    display: inline;
+}
+
+.balance-value {
+    min-height: 38px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hidden-balance {
+    display: none;
+    letter-spacing: 5px;
+}
+
+.balance-section:has(input:checked) .visible-balance {
+    display: none;
+}
+
+.balance-section:has(iput:checked) .hidden-balance {
+    display: inline;
+}
+
+.card-number {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 24px;
+    font-family: monospace;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.card-footer {
+    align-items: flex-end;;
+}
+
+.card-footer > div {
+    display: grid;
+    gap: 5px;
+}
+
+.card-footer small {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.card-footer strong {
+    font-size: 11px;
+    letter-spacing: 0.7px;
+}
+
+.card-brand {
+    position: relative;
+    display: block !important;
+    width: 54px;
+    height: 32px;
+}
+
+.card-brand span {
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.card-brand span:first-child {
+    left: 0;
+    background: rgba(239, 68, 68, 0.9);
+}
+
+.card-brand span:last-child {
+    right: 0;
+    background: rgba(245, 15, 11, 0.9);
+}
+
+.card-glow {
+    position: absolute;
+    right: -80px;
+    bottom: -100px;
+    width: 230px;
+    border-radius: 50%;
+    background: rgba (168, 85, 247, 0.45);
+    filter: blur(15px);
+    transition: transform 0.45s ease;
+}

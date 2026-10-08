@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css"/>
+        <title>Login4</title>
+    </head>
+    <body>
+        <div class="card">
+            <input type="checkbox" id="toggle" class="toggle" />
+
+            <div class="card-bg card-bg-1"></div>
+            <div class="card-bg card-bg-2"></div>
+
+            <div class="switch login">
+                <label for="toggle">Sign Up
+                    <span class="icon">&rsaquo;</span>
+                </label>
+            </div>
+            <div class="switch register">
+                <label for="toggle">Login
+                    <span class="icon">&lsaquo;</span>
+                </label>
+            </div>
+            
+            <div class="form login">
+                <form action="#" novalidate>
+                    <h2 class="form-title">Welcome back</h2>
+                    <p class="form-subtitle">Sign in to your account</p>
+
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" placeholder="••••••••" required />
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember" />
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Sign In</button>
+                </form>
+            </div>
+
+            <div class="form register">
+                <form action="#" novalidate>
+                    <h2 class="form-title">Create account</h2>
+                    <p class="form-subtitle">Join us today, it's free!</p>
+
+                    <div class="input-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" name="name" placeholder="Alex Morgan" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" name="password" placeholder="At least 8 characters" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" name="confirm_password" placeholder="Repeat your password" required />
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" name="terms" required />
+                            I agree to the <a href="#">Terms &amp; Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

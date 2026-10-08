@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristiano Ronaldo - Player Card</title>
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="card" id="cr7-card">
+        <img class="image" src="cr7.jpg" alt="Cristiano Ronaldo" />
+        <div class="content">
+            <h2>Cristiano Ronaldo</h2>
+            <h3>Al-Nassr</h3>
+            <p class="quote">"Para ter ambição, um indivíduo deve pensar que é o melhor em sua profissão."</p>
+            <a href="#expand" class="read-more" id="read-more-btn">Read more...</a>
+            <div class="footer">
+                <div class="details">
+                    <span class="item">
+                        <em>Atacante</em>
+                    </span>
+                    <span class="item">
+                        <em>Portugal</em>
+                    </span>
+                </div>
+                <div class="buttons">
+                    <button class="primary-btn" id="follow-btn">Follow</button>
+                    <button class="icon-btn" id="fav-btn" aria-label="Favoritar">
+                        <span class="material-symbols-outlined icon-heart">favorite_border</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Interações da interface
+        const readMoreBtn = document.getElementById('read-more-btn');
+        const card = document.getElementById('cr7-card');
+        const followBtn = document.getElementById('follow-btn');
+        const favBtn = document.getElementById('fav-btn');
+        const favIcon = favBtn.querySelector('.icon-heart');
+
+        if (readMoreBtn) {
+            readMoreBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                card.classList.toggle('expanded');
+                readMoreBtn.textContent = card.classList.contains('expanded') ? 'Read less...' : 'Read more...';
+            });
+        }
+
+        if (followBtn) {
+            followBtn.addEventListener('click', () => {
+                followBtn.classList.toggle('following');
+                followBtn.textContent = followBtn.classList.contains('following') ? 'Following' : 'Follow';
+            });
+        }
+
+        if (favBtn) {
+            favBtn.addEventListener('click', () => {
+                favBtn.classList.toggle('active');
+                if (favBtn.classList.contains('active')) {
+                    favIcon.textContent = 'favorite';
+                    favIcon.style.fontVariationSettings = "'FILL' 1";
+                } else {
+                    favIcon.textContent = 'favorite_border';
+                    favIcon.style.fontVariationSettings = "'FILL' 0";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

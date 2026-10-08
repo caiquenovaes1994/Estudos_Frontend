@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dropdown</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <style>
+            body {
+                margin: 0;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: url('bg.jpg') no-repeat center center fixed;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="dropdown" id="dropdown">
+            <button type="button" class="trigger" id="trigger" aria-haspopup="true" aria-expanded="false" aria-controls="menu">
+            <i class="ph-user" aria-hidden="true"></i>
+            <span>Joseph Harrison</span>
+            <i class="ph-caret-down chevron" aria-hidden="true"></i>
+            </button>
+            <div class="menu" id="menu" role="menu">
+                <div class="pages" id="pages">
+                    <div class="page" data-page="root" data-level="0">
+                        <button type="button" class="row" role="menuitem" data-open="settings">
+                            <i class="ph-gear" aria-hidden="true"></i>
+                            <span>Settings</span>
+                            <i class="ph-caret-right chevron" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="row" role="menuitem" data-open="account">
+                            <i class="ph-user-circle" aria-hidden="true"></i>
+                            <span>Account</span>
+                            <i class="ph-caret-right chevron" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="row" role="menuitem" data-open="team">
+                            <i class="ph-users" aria-hidden="true"></i>
+                            <span>Team</span>
+                            <i class="ph-caret-right chevron" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-light ph-sign-out" aria-hidden="true"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                    <div class="page" data-page="settings" data-level="1">
+                        <button type="button" class="row back" role="menuitem" data-open="root" data-back>
+                            <i class="ph-caret-left chevron" aria-hidden="true"></i>
+                            <span>Settings</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-package" aria-hidden="true"></i>
+                            <span>Inventory</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-sliders-horizontal" aria-hidden="true"></i>
+                            <span>Management</span>
+                        </button>
+                    </div>
+                    <div class="page" data-page="account" data-level="1">
+                        <button type="button" class="row back" role="menuitem" data-open="root" data-back>
+                            <i class="ph-caret-left chevron" aria-hidden="true"></i>
+                            <span>Account</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-hard-drive" aria-hidden="true"></i>
+                            <span>Storage</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-gift" aria-hidden="true"></i>
+                            <span>Rewards</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-lifebuoy" aria-hidden="true"></i>
+                            <span>Support</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-truck" aria-hidden="true"></i>
+                            <span>Shipping</span>
+                        </button>
+                    </div>
+                    <div class="page" data-page="team" data-level="1">
+                        <button type="button" class="row back" role="menuitem" data-open="root" data-back>
+                            <i class="ph-caret-left chevron" aria-hidden="true"></i>
+                            <span>Team</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-user-list" aria-hidden="true"></i>
+                            <span>Members</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-shield" aria-hidden="true"></i>
+                            <span>Roles</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-envelope-simple" aria-hidden="true"></i>
+                            <span>Invitations</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-key" aria-hidden="true"></i>
+                            <span>Permissions</span>
+                        </button>
+                        <button type="button" class="row" role="menuitem">
+                            <i class="ph-activity" aria-hidden="true"></i>
+                            <span>Activity</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
