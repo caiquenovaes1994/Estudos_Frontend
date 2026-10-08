@@ -7,6 +7,7 @@ Repositório dedicado aos componentes, interfaces e experimentos práticos de de
 - **Accordions**;
 - **Cards**;
 - **Carousels**;
+- **Dashboards**;
 - **Dropdowns**;
 - **Footers**;
 - **Logins**;
