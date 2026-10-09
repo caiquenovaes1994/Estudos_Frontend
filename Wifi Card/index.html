@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WiFi Login Card</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="outer-frame">
+    <div class="grid-canvas">
+      <main class="wifi-card">
+        <header class="card-header">
+          <h1 class="card-title">WIFI LOGIN</h1>
+          <div class="title-underline"></div>
+        </header>
+
+        <section class="card-body">
+          <div class="qr-container" title="QR Code do Wi-Fi">
+            <img src="" alt="WiFi QR Code" id="qrcode">
+            <div class="scan-line"></div>
+          </div>
+
+          <div class="form-fields">
+            <div class="field-group">
+              <label for="ssid">Rede</label>
+              <input 
+                type="text" 
+                id="ssid" 
+                class="ssid" 
+                value="" 
+                autocomplete="off" 
+                spellcheck="false"
+                placeholder="Nome da Rede"
+              >
+            </div>
+
+            <div class="field-group">
+              <label for="password">Senha</label>
+              <input 
+                type="password" 
+                id="password" 
+                class="password" 
+                value="" 
+                autocomplete="off"
+                placeholder="Senha"
+              >
+            </div>
+          </div>
+        </section>
+
+        <aside class="connect-banner">
+          <div class="banner-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#181926" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              <line x1="9" y1="6" x2="15" y2="6"></line>
+              <line x1="9" y1="10" x2="15" y2="10"></line>
+              <line x1="9" y1="14" x2="15" y2="14"></line>
+            </svg>
+          </div>
+          <div class="banner-info">
+            <strong class="banner-title">Conecte-se ao Wifi</strong>
+            <span class="banner-subtitle">Aponte sua câmera para o QR Code</span>
+          </div>
+        </aside>
+
+        <button type="button" class="print-btn">Gerar QR Code</button>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
