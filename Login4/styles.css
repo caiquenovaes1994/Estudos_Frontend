@@ -1,8 +1,20 @@
-.card {
+:root {
     --color-primary: #755eff;
     --color-muted: #a7a7ad;
     --color-border: #d3d3dc;
     --color-card: #ffffff;
+    font-family: 'Euclid Circular A', 'Poppins', sans-serif;
+}
+
+body {
+    background: #a7a7ad;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card {
     position: relative;
     overflow: hidden;
     width: 660px;
@@ -133,6 +145,20 @@
     width: 270px;
     opacity: 0;
     transition: 0.3s
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-card);
+    margin-bottom: auto;
+}
+
+.form-subtitle {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+    padding: 0 14px;
 }
 
 .form.register {

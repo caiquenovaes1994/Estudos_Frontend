@@ -1,0 +1,55 @@
+body {
+    background-color: #6e6e6e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.circle-card {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    padding: 30px;
+    border-radius: 16px;
+    background: #1a1a2e;
+    color: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.circle-card>* {
+    position: relative;
+}
+
+.circle-card::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00eaff, #6a00ff);
+    transition: transform 0.6s cubic-bezier(.4, 0, .2, 1);
+}
+
+.circle-card:hover::before {
+    transform: scale(9.6);
+}
+
+.circle-card h3 {
+    margin: 0 0 6px;
+}
+
+.circle-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #999;
+    transition: color 0.4s ease;
+}
+
+.circle-card:hover p {
+    color: #fff;
+}
