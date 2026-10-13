@@ -29,12 +29,10 @@ var audio = new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/Anton
 audio.loop = true;
 
 function playAudio() {
-  if (audio) {
-    var p = playAudio();
+  if (audio && audio.paused) {
+    var p = audio.play();
     if (p && p.catch) {
-      p.catch(function(e) {
-
-      });
+      p.catch(function(e) {});
     }
   }
 }
@@ -129,8 +127,8 @@ function initScreenAnd3D() {
 
   window.addEventListener('resize', handleWindowResize, false);
   document.addEventListener('mousedown', handleMouseDown, false);
-  document.addEventListener("touchend", handleMouseDown, false);
-  document.addEventListener("keydown", handleKeyDown, false);
+  document.addEventListener('touchstart', handleMouseDown, { passive: true });
+  window.addEventListener('keydown', handleKeyDown, false);
 
   clock = new THREE.Clock();
 
@@ -155,7 +153,7 @@ function handleMouseDown(event){
 }
 
 function handleKeyDown(event){
-  if (event.code === "Space" || event.key === " " || event.key === "ArrowUp"){
+  if (event.code === "Space" || event.key === " " || event.key === "ArrowUp" || event.keyCode === 32 || event.keyCode === 38){
     event.preventDefault();
     playAudio();
     if (gameStatus == "play") hero.jump();
@@ -1229,7 +1227,7 @@ function resetGame(){
   gameStatus = "play";
   hero.status = "running";
   hero.nod();
-  audio.play();
+  playAudio();
   updateLevel();
   levelInterval = setInterval(updateLevel, levelUpdateFreq);
 }
