@@ -1,0 +1,62 @@
+.clock {
+    width: 280px;
+    height: 280px;
+    border: 8px solid #1a1a1a;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+    margin: 50px auto;
+}
+
+.number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px;
+    font: bold 20px/30px sans-serif;
+    text-align: center;
+    transform: rotate(calc(var(--n) * 30deg)) translateY(-110px) rotate(calc(var(--n) * -30deg));
+}
+
+.n1 { --n: 1;}
+.n2 { --n: 2;}
+.n3 { --n: 3;}
+.n4 { --n: 4;}
+.n5 { --n: 5;}
+.n6 { --n: 6;}
+.n7 { --n: 7;}
+.n8 { --n: 8;}
+.n9 { --n: 9;}
+.n10 { --n: 10;}
+.n11 { --n: 11;}
+.n12 { --n: 12;}
+
+.hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    left: 50%;
+    background: #1a1a1a;
+    transform-origin: bottom;
+}
+
+.hour-hand {
+    width: 6px;
+    height: 70px;
+    margin-left: -3px;
+}
+
+.minute-hand {
+    width: 4px;
+    height: 100px;
+    margin-left: -2px;
+}
+
+.second-hand {
+    width: 2px;
+    height: 115px;
+    margin-left: -1px;
+    background: red;
+}
