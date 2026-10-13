@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login8</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-on="false">
+    <div class="scene">
+        <div class="container">
+            <div class="lamp-wrapper">
+                <div class="light-cone"></div>
+                <svg class="lamp" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="shadeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fff9ee" />
+                            <stop offset="100%" stop-color="#e8dec8" />
+                        </linearGradient>
+                        <linearGradient id="stemGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#7a7266" />
+                            <stop offset="50%" stop-color="#b8ad9c" />
+                            <stop offset="100%" stop-color="#5a5247" />
+                        </linearGradient>
+                        <radialGradient id="bulbGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#fff7db" stop-opacity="1" />
+                            <stop offset="50%" stop-color="#ffd56b" stop-opacity="0.9" />
+                            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+                        </radialGradient>
+                    </defs>
+
+                    <rect class="lamp-stem" x="93" y="105" width="14" height="150" rx="7" fill="url(#stemGradient)" />
+                    <rect class="lamp-base" x="55" y="248" width="90" height="14" rx="7" fill="url(#stemGradient)" />
+                    <ellipse class="inner-glow" cx="100" cy="110" rx="55" ry="18" fill="url(#bulbGlow)" />
+
+                    <g class="pull-cord">
+                        <line class="cord-line" x1="135" y1="110" x2="135" y2="185" />
+                        <circle class="cord-bead" cx="135" cy="192" r="7" />
+                        <circle class="cord-hit" cx="135" cy="192" r="30" fill="transparent" />
+                    </g>
+
+                    <path class="lamp-shade" d="M30 110 C 30 50, 170 50, 170 110 C 170 124, 30 124, 30 110 Z" />
+                </svg>
+            </div>
+
+            <div class="login-wrapper">
+                <form class="login-form" id="loginForm" autocomplete="off">
+                    <div class="form-header">
+                        <h2>Bem-vindo!</h2>
+                        <p>Insira suas informações para entrar.</p>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="email">E-mail</label>
+                        <div class="input-box">
+                            <i class="fa-regular fa-envelope input-icon"></i>
+                            <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="password">Senha</label>
+                        <div class="input-box">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                            <button type="button" class="btn-toggle-pass" id="togglePassword" aria-label="Alternar visibilidade da senha">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <span class="custom-check"></span>
+                            <span class="label-text">Lembrar de mim</span>
+                        </label>
+                        <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span>Acessar Conta</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="form-footer">
+                        <p>Não tem cadastro? <a href="#">Criar conta</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
