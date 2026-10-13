@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Menu Button</title>
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+    <main data-theme="dark">
+        <div class="container">
+            <div class="selector" style="--angle: 120deg;">
+                <div class="glow-ring"></div>
+                <div class="outer-track"></div>
+                <div class="knob">
+                    <div class="knob-cap"></div>
+                    <div class="knob-indicator"></div>
+                </div>
+                <ul>
+                    <li style="--item-angle: 300deg;">
+                        <input type="radio" id="opt-back" name="choice-a" value="back">
+                        <label for="opt-back" title="Back">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </label>
+                    </li>
+                    <li style="--item-angle: 0deg;">
+                        <input type="radio" id="opt-home" name="choice-a" value="home">
+                        <label for="opt-home" title="Home">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 10.5L12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-6v6H4.5A1.5 1.5 0 0 1 3 20v-9.5z"></path>
+                            </svg>
+                        </label>
+                    </li>
+                    <li style="--item-angle: 60deg;">
+                        <input type="radio" id="opt-search" name="choice-a" value="search">
+                        <label for="opt-search" title="Search">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="7.5"></circle>
+                                <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                            </svg>
+                        </label>
+                    </li>
+                    <li style="--item-angle: 120deg;">
+                        <input type="radio" id="opt-star" name="choice-a" value="star" checked>
+                        <label for="opt-star" title="Star">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </label>
+                    </li>
+                    <li style="--item-angle: 180deg;">
+                        <input type="radio" id="opt-more" name="choice-a" value="more">
+                        <label for="opt-more" title="More">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                <circle cx="12" cy="12" r="1.8"></circle>
+                                <circle cx="12" cy="5.5" r="1.8"></circle>
+                                <circle cx="12" cy="18.5" r="1.8"></circle>
+                            </svg>
+                        </label>
+                    </li>
+                    <li style="--item-angle: 240deg;">
+                        <input type="radio" id="opt-refresh" name="choice-a" value="refresh">
+                        <label for="opt-refresh" title="Refresh">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12a9 9 0 1 1-2.64-6.36L21 8"></path>
+                                <polyline points="21 3 21 8 16 8"></polyline>
+                            </svg>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
