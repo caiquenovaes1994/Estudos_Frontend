@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Landing Page</title>
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="left-side">
+            <a href="#"><img src="./assets/logo.png" alt=""></a>
+        </div>
+        <div class="right-side">
+            <div class="nav-link-wrapper"><a href="#">Home</a></div>
+            <div class="nav-link-wrapper"><a href="#">Menu</a></div>
+            <div class="nav-link-wrapper"><a href="#">What's New</a></div>
+            <div class="nav-link-wrapper"><a href="#">Contact</a></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="left-side">
+            <h1>It's not just Coffee<br>
+            It's <span class="green">Starbucks</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error veritatis ducimus ullam natus? Voluptates, velit at ullam dolorem consequuntur deleniti, iste saepe aspernatur laborum repellat officiis, labore explicabo modi cum.</p>
+            <a href="#">Learn More</a>
+        </div>
+        
+        <div class="right-side">
+            <img src="./assets/img1.png" alt="" class="starbucks">
+            <div class="box">
+                <a href="#"><img class="facebook" src="./assets/facebook.png" alt=""></a>
+                <a href="#"><img class="instagram" src="./assets/instagram.png" alt=""></a>
+                <a href="#"><img class="twitter" src="./assets/twitter.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div class="thumb">
+        <a href="#bottom"><img src="./assets/thumb1.png" onclick="imgSlider('./assets/img1.png');"></a>
+        <a href="#bottom"><img src="./assets/thumb2.png" onclick="imgSlider('./assets/img2.png');"></a>
+        <a href="#bottom"><img src="./assets/thumb3.png" onclick="imgSlider('./assets/img3.png');"></a>
+    </div>
+    
+    <script>
+        function imgSlider(anything){
+    document.querySelector('.starbucks').src = anything;
+}
+    </script>
+</body>
+</html>
