@@ -1,0 +1,60 @@
+body {
+    background-color: #012e46;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.stack {
+    position: relative;
+    width: 180px;
+    height: 240px;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 240px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0,0 , 0.4);
+    transition: transform 0.5s cubic-bezier(.2, .9, .3, 1.2);
+    padding: 12px;
+}
+
+.c1 {
+    background: linear-gradient(135deg, #ff6a00, #ff2d95);
+    transform: rotate(-6deg);
+    z-index: 1;
+}
+
+.c2 {
+    background: linear-gradient(135deg, #00c9ff, #92fe9d);
+    transform: rotate(0deg);
+    z-index: 2;
+}
+
+.c3 {
+    background: linear-gradient(135deg, #6a00ff, #00c9ff);
+    transform: rotate(6deg);
+    z-index: 3;
+}
+
+.stack:hover .c1 {
+    transform: translate(-90px, -30px) rotate(-18deg);
+}
+
+.stack:hover .c2 {
+    transform: translate(0px, -55px) rotate(0deg);
+}
+
+.stack:hover .c3 {
+    transform: translate(90px, -30px) rotate(18deg);
+}
