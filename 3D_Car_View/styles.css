@@ -1,0 +1,381 @@
+/* ==========================================================================
+   Honda City 2015 — Visualizador 3D Interativo (Sketchfab)
+   Design System, Tipografia, Layout & Painel de Controles
+   ========================================================================== */
+
+:root {
+    /* Pintura Cinza Barium Metálico */
+    --paint: #6b7075;
+    --paint-top: #8a9095;
+    --paint-hi: #aab0b5;
+    --paint-mid: #80868b;
+    --paint-lo: #45494d;
+    --paint-dk: #2b2e31;
+
+    /* Cores de Destaque e Interface */
+    --accent: hsl(204 95% 62%);
+    --accent-2: hsl(228 88% 64%);
+    --ui-bg: hsl(220 22% 10% / .62);
+    --ui-line: hsl(0 0% 100% / .09);
+    --ui-text: hsl(210 20% 92%);
+    --ui-muted: hsl(215 14% 65%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    color: var(--ui-text);
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, hsl(213 30% 16%) 0%, transparent 75%),
+        radial-gradient(ellipse 120% 80% at 50% 120%, hsl(215 45% 12%) 0%, transparent 60%),
+        hsl(220 30% 4%);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   CABEÇALHO E BRANDING
+   ========================================================================== */
+
+.topbar {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 24px 32px;
+    pointer-events: none;
+    animation: fade-down .8s cubic-bezier(.16, .84, .24, 1) both;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.eyebrow::before {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: currentColor;
+}
+
+.brand h1 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 6px;
+    font-size: clamp(26px, 3.8vw, 46px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+}
+
+.brand .honda-logo {
+    width: clamp(34px, 3.6vw, 46px);
+    height: clamp(34px, 3.6vw, 46px);
+    color: #eef2f7;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .6)) drop-shadow(0 0 16px hsl(204 95% 62% / .35));
+    flex-shrink: 0;
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.brand h1:hover .honda-logo {
+    transform: scale(1.08) rotate(-3deg);
+    filter: drop-shadow(0 4px 12px rgba(255, 255, 255, .4)) drop-shadow(0 0 22px hsl(204 95% 62% / .6));
+}
+
+.brand h1 span {
+    font-weight: 300;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.brand p {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--ui-muted);
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    pointer-events: auto;
+}
+
+.paint-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px 10px 10px;
+    border: 1px solid var(--ui-line);
+    border-radius: 16px;
+    background: var(--ui-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .5);
+}
+
+.paint-card .swatch {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 32% 28%, #fff8 0 8%, transparent 30%),
+        conic-gradient(from 200deg, var(--paint-dk), var(--paint-hi), var(--paint), var(--paint-lo), var(--paint-hi), var(--paint-dk));
+    box-shadow: 0 0 0 2px hsl(0 0% 100% / .12), 0 6px 18px -4px #000;
+}
+
+.paint-card strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.paint-card small {
+    font-size: 12px;
+    color: var(--ui-muted);
+}
+
+/* Marca d'água de fundo */
+.backdrop-word {
+    position: fixed;
+    left: 50%;
+    top: 48%;
+    translate: -50% -50%;
+    z-index: 0;
+    font-size: min(34vw, 440px);
+    font-weight: 800;
+    letter-spacing: .04em;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px hsl(210 40% 80% / .03);
+    background: linear-gradient(180deg, hsl(210 40% 80% / .025), transparent 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   CENA 3D (SKETCHFAB IFRAME FULLSCREEN)
+   ========================================================================== */
+
+.stage-3d {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    border: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 70% 55% at 50% 50%, hsl(213 30% 12%) 0%, transparent 80%),
+        hsl(220 30% 4%);
+}
+
+.stage-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ==========================================================================
+   PAINEL DE CONTROLES E DICAS (HUD)
+   ========================================================================== */
+
+.hint {
+    position: fixed;
+    left: 50%;
+    bottom: 92px;
+    translate: -50% 0;
+    z-index: 3;
+    font-size: 12px;
+    color: var(--ui-muted);
+    white-space: nowrap;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, .8);
+    pointer-events: none;
+    animation: fade-up .9s .4s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.hud {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    translate: -50% 0;
+    z-index: 3;
+    display: flex;
+    align-items: stretch;
+    width: max-content;
+    max-width: calc(100vw - 24px);
+    padding: 10px 14px;
+    border: 1px solid var(--ui-line);
+    border-radius: 20px;
+    background: var(--ui-bg);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .8), inset 0 1px 0 hsl(0 0% 100% / .08);
+    animation: fade-up .9s .3s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.hud-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hud-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ui-muted);
+}
+
+.sf-hints {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.sf-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background: hsl(0 0% 100% / .06);
+    border: 1px solid var(--ui-line);
+    font-size: 13px;
+    font-weight: 500;
+    color: hsl(210 20% 92%);
+    user-select: none;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.sf-tag:hover {
+    background: hsl(0 0% 100% / .1);
+    border-color: hsl(0 0% 100% / .2);
+    transform: translateY(-1px);
+}
+
+.sf-tag svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ==========================================================================
+   ANIMAÇÕES
+   ========================================================================== */
+
+@keyframes fade-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        translate: -50% 20px;
+    }
+    to {
+        opacity: 1;
+        translate: -50% 0;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .topbar {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .hint {
+        display: none;
+    }
+
+    .hud {
+        bottom: 14px;
+        padding: 8px 10px;
+    }
+
+    .sf-tag {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .brand h1 {
+        font-size: 24px;
+    }
+
+    .brand .honda-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .paint-card {
+        padding: 6px 12px 6px 8px;
+    }
+
+    .paint-card .swatch {
+        width: 28px;
+        height: 28px;
+    }
+
+    .sf-tag {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .topbar,
+    .hint,
+    .hud {
+        animation: none;
+    }
+}
