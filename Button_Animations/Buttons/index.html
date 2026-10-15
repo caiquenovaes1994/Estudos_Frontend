@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <title>Button Animations</title>
+    </head>
+    <body>
+        <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+            <defs>
+                <filter id="electric-border-1" x="-100%" y="-100%" width="300%" height="300%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.02 0.08" numOctaves="4" result="noise1">
+                        <animate attributeName="baseFrequency" values="0.02 0.08; 0.03 0.1; 0.018 0.07; 0.025 0.09; 0.02 0.08" dur="0.25s" repeatCount="indefinite" />
+                    </feTurbulence>
+                    <feTurbulence type="fractalNoise" baseFrequency="0.03 0.09" numOctaves="4" result="noise2">
+                        <animate attributeName="baseFrequency" values="0.03 0.09; 0.02 0.07; 0.035 0.11; 0.025 0.08; 0.03 0.09" dur="0.2s" repeatCount="indefinite" />
+                    </feTurbulence>
+                    <feBlend in="noise1" in2="noise2" mode="color-dodge" result="combinedNoise" />
+                    <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="12" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+                <filter id="electric-border-2" x="-100%" y="-100%" width="300%" height="300%">
+                    <feTurbulence type="turbulence" baseFrequency="0.015 0.07" numOctaves="3" result="noise">
+                        <animate attributeName="baseFrequency" values="0.015 0.07; 0.025 0.09; 0.012 0.06; 0.02 0.08; 0.015 0.07" dur="0.18s" repeatCount="indefinite" />
+                    </feTurbulence>
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="B" />
+                </filter>
+            </defs>
+        </svg>
+
+        <div class="container">
+            <button class="btn-glow">
+                <span>Hover Me <i class="fas fa-arrow-right"></i></span>
+            </button>
+            <button class="btn-liquid">
+                <i class="fas fa-droplet"></i>
+                <span>Liquid</span>
+            </button>
+            <button class="btn-electric">
+                <i class="fas fa-bolt"></i>
+                Electric
+            </button>
+            <button class="btn-3d">
+                <i class="fas fa-cube"></i>
+                <span>3D Button</span>
+            </button>
+            <button class="btn-neon">
+                <i class="fas fa-star"></i>
+                <span>Neon Border</span>
+            </button>
+            <button class="btn-ripple">
+                <i class="fas fa-circle-dot"></i>
+                <span>Ripple</span>
+            </button>
+            <button class="btn-slide">
+                <span>Next <i class="fas fa-arrow-right"></i></span>
+            </button>
+            <button class="btn-text">
+                <i class="far fa-heart"></i>
+                <span>Like</span>
+            </button>
+        </div>
+    </body>
+</html>
