@@ -1,0 +1,311 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: radial-gradient(circle at top, #3730a3, transparent 45%), #111827;
+    font-family: Arial, sans-serif;
+}
+
+.movie-ticket {
+    display: flex;
+    width: min(100%, 760px);
+    min-height: 270px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fffaf0;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.38);
+    transition: transform 0.35s ease, box-shador 0.35s ease;
+}
+
+.movie-ticket:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 0 35px 75px rgba(0, 0, 0, 0.48);
+}
+
+.ticket-main {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
+.movie-poster {
+    position: relative;
+    width: 190px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.8);
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.movie-ticket:hover .movie-poster img {
+    filter: saturate(1.2);
+    transform: scale(1.08);
+}
+
+.poster-overlay {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    background: rgba(17, 24, 39, 0.72);
+    color: #ffffff;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    backdrop-filter: blur(8px);
+}
+
+.movie-info {
+    flex: 1;
+    min-width: 0;
+    padding: 25px 28px;
+}
+
+.ticket-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.ticket-label {
+    color: #b45309;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.ticket-logo {
+    color: #b45309;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.movie-info h1 {
+    margin: 22px 0 6px;
+    color: #111827;
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 4vw, 38px);
+    line-height: 1.1;
+}
+
+.movie-meta {
+    margin: 0;
+    font-size: 12px;
+    color: #927f64;
+}
+
+.ticket-details {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+
+.ticket-details div, .ticket-footer div {
+    display: grid;
+    gap: 6px;
+}
+
+.ticket-details small, .ticket-footer small {
+    color: #a99a83;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.ticket-details strong, .ticket-footer strong {
+    color: #3f3528;
+    font-size: 11px;
+}
+
+.ticket-footer {
+    display: flex;
+    align-items: flex-end;
+    gap: 27px;
+    margin-top: 27px;
+    padding-top: 16px;
+    border-top: 1px dashed #ddcdb4;
+}
+
+.ticket-code {
+    margin-left: auto;
+    color: #b45309;
+    font-size: 11px;
+    font-family: monospace;
+}
+
+.ticket-divider {
+    position: relative;
+    width: 1px;
+    border-left: 2px dashed #d7c4a9;
+}
+
+.ticket-divider::before, .ticket-divider::after {
+    content: "";
+    position: absolute;
+    left: -13px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #111827;
+}
+
+.ticket-divider::before {
+    top: -12px;
+}
+
+.ticket-divider::after {
+    bottom: -12px;
+}
+
+.ticket-stub {
+    width: 145px;
+    flex-shrink: 0;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 11px;
+    padding: 20px;
+    text-align: center;
+}
+
+.barcode i {
+    display: block;
+    width: 2px;
+    height: 22px;
+    margin: 16px auto;
+    background: #d7c4a9;
+}
+
+.ticket-stub strong {
+    margin-top: 18px;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.ticket-stub small {
+    margin-top: 6px;
+    color: #927f64;
+    font-size: 8px;
+}
+
+.ticket-stub strong {
+    color: #b45309;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+}
+
+.ticket-stub small {
+    color: #927f64;
+    font-size: 10px;
+}
+
+.barcode {
+    display: flex;
+    align-items: stretch;
+    gap: 3px;
+    height: 54px;
+}
+
+.barcode i {
+    display: block;
+    width: 3px;
+    background: #1f2937;
+}
+
+.barcode i:nth-child(2), .barcode i:nth-child(5), .barcode i:nth-child(8) {
+    width: 6px;
+}
+
+.barcode i:nth-child(3), .barcode i:nth-child(7), .barcode i:nth-child(10) {
+    width: 2px;
+}
+
+@media (max-width: 620px) {
+    .movie-ticket {
+        display: block;
+    }
+
+    .ticket-main {
+        display: block;
+    }
+
+    .movie-poster {
+        width: 100%;
+        height: 190px;
+    }
+
+    .movie-info {
+        padding: 22px;
+    }
+
+    .ticket-details {
+        margin-top: 24px;
+    }
+
+    .ticket-divider {
+        width: auto;
+        height: 1px;
+        border-top: 2px dashed #d7c4a9;
+        border-left: 0;
+    }
+
+    .ticket-divider::after,
+    .ticket-divider::before {
+        top: -12px;
+        bottom: auto;
+    }
+
+    .ticket-divider::before {
+        left: -12px;
+    }
+
+    .ticket-divider::after {
+        right: -12px;
+        left: auto;
+    }
+
+    .ticket-stub {
+        width: 100%;
+        min-height: 130px;
+    }
+}
+
+@media (max-width: 420px) {
+    .ticket-details {
+        gap: 8px;
+    }
+
+    .ticket-details strong {
+        font-size: 9px;
+    }
+
+    .ticket-footer {
+        gap: 16px;
+    }
+
+    .ticket-code {
+        font-size: 9px;
+    }
+}
