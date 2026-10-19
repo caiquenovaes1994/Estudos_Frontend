@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: skyblue;
+}
+
+.flag {
+    width: 600px;
+    max-width: 90%;
+}
+
+.dot {
+    r: 10px;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.black {
+    fill: #000;
+}
+
+.white {
+    fill: #fff;
+}
+
+.green {
+    fill: #149954;
+}
+
+.red {
+    fill: #e4312b;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(0.9);
+    }
+}
