@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notification Center</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="notification-center">
+        <div class="notification-header">
+            <div>
+                <p class="eyebrow">ACTIVITY</p>
+                <h1>Notifications</h1>
+            </div>
+
+            <button class="settings-nutton" type="button" aria-label="Notification settings">
+                &#x2699;
+            </button>
+        </div>
+
+        <div class="notification-tabs">
+            <input type="radio" name="notification-tab" id="all-tab" checked />
+            <label for="all-tab">All <span>6</span></label>
+
+            <input type="radio" name="notification-tab" id="unread-tab" />
+            <label for="unread-tab">Unread <span>3</span></label>
+        </div>
+
+        <div class="notification-list">
+            <article class="notification-item unread">
+                <div class="notification-avatar purple">JD</div>
+                
+                <div class="notification-content">
+                    <p><strong>John Doe</strong> mentioned you in a comment.</p>
+                    <time>2 minutes ago</time>
+                </div>
+
+                <span class="unread-dot"></span>
+            </article>
+
+            <article class="notification-item unread">
+                <div class="notification-avatar blue">&#10003;</div>
+
+                <div class="notification-content">
+                    <p>Your project <strong>Dashboard UI</strong> was approved.</p>
+                    <time>1 hour ago</time>
+                </div>
+
+                <span class="unread-dot"></span>
+            </article>
+
+            <article class="notification-item unread">
+                <div class="notification-avatar orange">&#9733;</div>
+
+                <div class="notification-content">
+                    <p>You received a new <strong>5-star review</strong>.</p>
+                    <time>3 hours ago</time>
+                </div>
+
+                <span class="unread-dot"></span>
+            </article>
+
+            <article class="notification-item">
+                <div class="notification-avatar pink">AM</div>
+
+                <div class="notification-content">
+                    <p><strong>Anna Miller</strong> started following you.</p>
+                    <time>Yesterday</time>
+                </div>
+            </article>
+
+            <article class="notification-item">
+                <div class="notification-avatar green">&#8599;</div>
+
+                <div class="notification-content">
+                    <p>Your monthly report is ready to view.</p>
+                    <time>Yesterday</time>
+                </div>
+            </article>
+
+            <article class="notification-item">
+                <div class="notification-avatar gray">&#x2699;</div>
+
+                <div class="notification-content">
+                    <p>Your account settings were updated.</p>
+                    <time>2 days ago</time>
+                </div>
+            </article>
+        </div>
+
+        <button class="mark-read-button">
+            <span aria-hidden="true">&#10003;</span> Mark all as read
+        </button>
+
+    </body>
+</html>
