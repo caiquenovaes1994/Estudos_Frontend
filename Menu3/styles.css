@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+header {
+    width: 430px;
+    box-sizing: border-box;
+    background: #06060a;
+    border: 1px solid #424e55;
+    border-radius: 25px;
+}
+
+nav {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    padding: 4px;
+}
+
+nav a {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    color: #8a8a99;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #fff;
+    anchor-name: --pill;
+}
+
+nav::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    position-anchor: --pill;
+    inset: anchor(top) anchor(right) anchor(bottom) anchor(left);
+    background: #140d2ef6;
+    border: 1px solid #8076aee3;
+    border-radius: 25px;
+    transition: inset 0.4s, opacity 0.3s;
+}
+
+nav:has(a:anchor)::before {
+    opacity: 1;
+}
