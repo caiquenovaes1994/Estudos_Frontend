@@ -2,13 +2,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background: #ffffff;
 }
 
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 32px;
+    padding: 32px;
+}
+
 .card-container {
     perspective: 800px;
+    cursor: pointer;
 }
 
 .card {
@@ -53,7 +61,7 @@ body {
     overflow: hidden;
 }
 
-.red {
+.red-back {
     position: absolute;
     background: #c40000;
     inset: 0;
@@ -141,21 +149,36 @@ body {
     6px 4px #fffffd;
 }
 
-.front {
+.front-green, .front-red, .front-blue, .front-yellow {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     inset: 0.7em;
     border-radius: 1.25em;
-    background: #0a8a00;
     overflow: hidden;
     transform: rotateY(180deg);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 
-.front .green {
+.front-green {
+    background: #0a8a00
+}
+
+.front-red {
+    background: #c40000;
+}
+
+.front-blue {
+    background: #0956bf;
+}
+
+.front-yellow {
+    background: #ecd407;
+}
+
+.front-green .green, .front-red .red, .front-blue .blue, .front-yellow .yellow {
     position: absolute;
     border: 1em solid #fffffd;
     transform: scale(0.75, 0.71) skewX(-22.5deg);
@@ -165,10 +188,25 @@ body {
     background: #ffffff;
 }
 
+.front-green .text-center {
+    color: #0a8a00;
+}
+
+.front-red .text-center {
+    color: #c40000;
+}
+
+.front-blue .text-center {
+    color: #0956bf;
+}
+
+.front-yellow .text-center {
+    color: #ecd407;
+}
+
 .text-center {
     position: absolute;
     width: 12em;
-    color: green;
     font-size: 8em;
     font-weight: bold;
     text-align: center;
