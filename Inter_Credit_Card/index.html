@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão Inter Prime</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="glow-orb orb-orange"></div>
+        <div class="glow-orb orb-purple"></div>
+        <div class="glow-orb orb-dark"></div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="card front-face">
+                <div class="card-texture"></div>
+                <div class="card-glare"></div>
+
+                <div class="brand-top-right">
+                    <img src="./assets/banco-inter-branco.png" alt="Banco Inter" class="inter-logo" />
+                    <span class="prime-tag">prime</span>
+                </div>
+
+                <div class="chip-container">
+                    <img src="./assets/chip.png" alt="Chip EMV" class="chip" />
+                </div>
+
+                <div class="mastercard-bottom-right">
+                    <img src="./assets/logo.png" alt="Mastercard" class="mastercard-logo" />
+                </div>
+            </div>
+
+            <div class="card back-face">
+                <div class="card-texture"></div>
+                <div class="card-glare"></div>
+
+                <div class="back-top-bar">
+                    <span class="mastercard-disclaimer">
+                        MASTERCARD GLOBAL SERVICE DE QUALQUER PAÍS, EXCETO O BRASIL, LIGUE A COBRAR 1 636 722 8881
+                    </span>
+                    <span class="code-281">281</span>
+                </div>
+
+                <div class="magnetic-strip-horizontal"></div>
+
+                <div class="card-client-row">
+                    <div class="client-left-block">
+                        <div class="client-name">CAIQUE NOVAES</div>
+                        <div class="card-number-fictitious">5213 8752 9050 2022</div>
+                        <div class="client-security-info">
+                            <div class="sec-item">
+                                <span class="lbl">CVC</span>
+                                <strong class="val">078</strong>
+                            </div>
+                            <div class="sec-item">
+                                <span class="lbl">VALIDADE</span>
+                                <strong class="val">02/35</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contactless-pro-box">
+                        <span class="pro-tag">pro</span>
+                        <svg class="nfc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round">
+                            <path d="M7 17 A 8 8 0 0 1 7 7" />
+                            <path d="M11 19 A 12 12 0 0 1 11 5" />
+                            <path d="M15 21 A 16 16 0 0 1 15 3" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="back-footer-grid">
+                    <div class="footer-col col-1">
+                        <p class="intro-p">Em caso de dúvidas,<br>fale com a gente pelo<br><strong class="superapp-text">Super App.</strong></p>
+                    </div>
+
+                    <div class="footer-col col-2">
+                        <span class="phone-val">3003 4070</span>
+                        <span class="phone-desc">Capitais e reg. metropolitanas</span>
+                        <span class="phone-val">55 31 3003 4070</span>
+                        <span class="phone-desc">Exterior</span>
+                    </div>
+
+                    <div class="footer-col col-3">
+                        <span class="phone-val">0800 940 0007</span>
+                        <span class="phone-desc">Demais localidades</span>
+                        <span class="phone-val">0800 940 9999</span>
+                        <span class="phone-desc">SAC (24 horas)</span>
+                    </div>
+
+                    <div class="footer-col col-4">
+                        <span class="phone-val">0800 940 7772</span>
+                        <span class="phone-desc">Ouvidoria</span>
+                    </div>
+
+                    <div class="footer-col col-5 eureciclo-box">
+                        <svg class="eureciclo-svg" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M 17 50 A 34 34 0 0 1 83 45" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+                            <polygon points="84,58 73,46 95,46" />
+                            <path d="M 83 50 A 34 34 0 0 1 17 55" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+                            <polygon points="16,42 5,54 27,54" />
+                            <circle cx="41" cy="50" r="5" />
+                            <circle cx="59" cy="50" r="5" />
+                        </svg>
+                        <span class="eureciclo-title">eu<strong>reciclo</strong></span>
+                    </div>
+                </div>
+
+                <div class="thomas-greg-vertical">
+                    <span>THOMAS GREG 3154000 05/25 6962769</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>
