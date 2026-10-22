@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Hex Sphere</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="experiment">
+        <header class="header">
+            <h1>Esfera 3D</h1>
+            <p>Iluminação dinâmica orbital em malha hexagonal</p>
+        </header>
+
+        <nav class="controls">
+            <label for="pause">
+                <input type="checkbox" id="pause">
+                <span>Pausar Onda</span>
+            </label>
+            <label for="pause-light">
+                <input type="checkbox" id="pause-light">
+                <span>Pausar Luz</span>
+            </label>
+            <label for="rotate-sphere">
+                <input type="checkbox" id="rotate-sphere" checked>
+                <span>Girar Esfera</span>
+            </label>
+            <label for="toggle-orbit">
+                <input type="checkbox" id="toggle-orbit" checked>
+                <span>Trajetória da Luz</span>
+            </label>
+        </nav>
+
+        <div class="scene">
+            <div class="sphere">
+                <div class="sphere-core"></div>
+                <div class="hex-row" style="--row: 0;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: -75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: -75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: -75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: -75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: -75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: -75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: -75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: -75.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 1;">
+                    <div class="title tile" style="--rot-y: 15.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 75.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 105.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 165.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 195.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 255.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 285.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: -67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 345.0deg; --rot-x: -67.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 2;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 22.5deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 67.5deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 112.5deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 157.5deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 202.5deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 247.5deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 292.5deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: -60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 337.5deg; --rot-x: -60.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 3;">
+                    <div class="title tile" style="--rot-y: 9.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 27.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 63.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 81.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 99.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 117.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 153.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 171.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 189.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 207.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 243.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 261.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 279.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 297.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 333.0deg; --rot-x: -52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 351.0deg; --rot-x: -52.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 4;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 15.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 30.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 60.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 75.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 105.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 120.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 150.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 165.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 195.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 210.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 240.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 255.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 285.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 300.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 330.0deg; --rot-x: -45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 345.0deg; --rot-x: -45.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 5;">
+                    <div class="title tile" style="--rot-y: 6.92deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 20.77deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 34.61deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 48.46deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 62.3deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 76.15deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 103.84deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 117.69deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 131.54deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 145.38deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 159.23deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 173.07deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 186.92deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 200.77deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 214.61deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 228.46deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 242.3deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 256.15deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 283.84deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 297.69deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 311.54deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 325.38deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 339.23deg; --rot-x: -37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 353.07deg; --rot-x: -37.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 6;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 12.86deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 25.71deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 38.57deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 51.43deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 64.29deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 77.14deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 102.86deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 115.71deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 128.57deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 141.43deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 154.29deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 167.14deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 192.86deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 205.71deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 218.57deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 231.43deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 244.29deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 257.14deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 282.86deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 295.71deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 308.57deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 321.43deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 334.29deg; --rot-x: -30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 347.14deg; --rot-x: -30.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 7;">
+                    <div class="title tile" style="--rot-y: 6.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 18.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 30.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 42.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 54.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 66.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 78.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 102.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 114.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 126.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 138.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 150.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 162.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 174.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 186.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 198.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 210.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 222.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 234.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 246.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 258.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 282.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 294.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 306.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 318.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 330.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 342.0deg; --rot-x: -22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 354.0deg; --rot-x: -22.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 8;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 11.25deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 22.5deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 33.75deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 56.25deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 67.5deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 78.75deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 101.25deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 112.5deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 123.75deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 146.25deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 157.5deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 168.75deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 191.25deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 202.5deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 213.75deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 236.25deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 247.5deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 258.75deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 281.25deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 292.5deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 303.75deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 326.25deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 337.5deg; --rot-x: -15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 348.75deg; --rot-x: -15.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 9;">
+                    <div class="title tile" style="--rot-y: 5.62deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 16.88deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 28.12deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 39.38deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 50.62deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 61.88deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 73.12deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 84.38deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 95.62deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 106.88deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 118.12deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 129.38deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 140.62deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 151.88deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 163.12deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 174.38deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 185.62deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 196.88deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 208.12deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 219.38deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 230.62deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 241.88deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 253.12deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 264.38deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 275.62deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 286.88deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 298.12deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 309.38deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 320.62deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 331.88deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 343.12deg; --rot-x: -7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 354.38deg; --rot-x: -7.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 10;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 11.25deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 22.5deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 33.75deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 56.25deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 67.5deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 78.75deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 101.25deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 112.5deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 123.75deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 146.25deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 157.5deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 168.75deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 191.25deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 202.5deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 213.75deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 236.25deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 247.5deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 258.75deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 281.25deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 292.5deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 303.75deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 326.25deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 337.5deg; --rot-x: 0.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 348.75deg; --rot-x: 0.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 11;">
+                    <div class="title tile" style="--rot-y: 5.62deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 16.88deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 28.12deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 39.38deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 50.62deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 61.88deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 73.12deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 84.38deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 95.62deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 106.88deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 118.12deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 129.38deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 140.62deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 151.88deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 163.12deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 174.38deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 185.62deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 196.88deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 208.12deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 219.38deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 230.62deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 241.88deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 253.12deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 264.38deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 275.62deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 286.88deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 298.12deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 309.38deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 320.62deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 331.88deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 343.12deg; --rot-x: 7.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 354.38deg; --rot-x: 7.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 12;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 11.25deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 22.5deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 33.75deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 56.25deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 67.5deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 78.75deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 101.25deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 112.5deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 123.75deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 146.25deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 157.5deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 168.75deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 191.25deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 202.5deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 213.75deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 236.25deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 247.5deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 258.75deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 281.25deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 292.5deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 303.75deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 326.25deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 337.5deg; --rot-x: 15.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 348.75deg; --rot-x: 15.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 13;">
+                    <div class="title tile" style="--rot-y: 6.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 18.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 30.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 42.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 54.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 66.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 78.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 102.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 114.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 126.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 138.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 150.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 162.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 174.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 186.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 198.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 210.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 222.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 234.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 246.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 258.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 282.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 294.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 306.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 318.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 330.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 342.0deg; --rot-x: 22.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 354.0deg; --rot-x: 22.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 14;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 12.86deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 25.71deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 38.57deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 51.43deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 64.29deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 77.14deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 102.86deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 115.71deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 128.57deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 141.43deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 154.29deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 167.14deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 192.86deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 205.71deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 218.57deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 231.43deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 244.29deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 257.14deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 282.86deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 295.71deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 308.57deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 321.43deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 334.29deg; --rot-x: 30.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 347.14deg; --rot-x: 30.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 15;">
+                    <div class="title tile" style="--rot-y: 6.92deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 20.77deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 34.61deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 48.46deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 62.3deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 76.15deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 103.84deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 117.69deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 131.54deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 145.38deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 159.23deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 173.07deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 186.92deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 200.77deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 214.61deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 228.46deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 242.3deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 256.15deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 283.84deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 297.69deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 311.54deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 325.38deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 339.23deg; --rot-x: 37.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 353.07deg; --rot-x: 37.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 16;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 15.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 30.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 60.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 75.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 105.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 120.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 150.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 165.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 195.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 210.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 240.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 255.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 285.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 300.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 330.0deg; --rot-x: 45.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 345.0deg; --rot-x: 45.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 17;">
+                    <div class="title tile" style="--rot-y: 9.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 27.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 63.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 81.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 99.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 117.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 153.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 171.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 189.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 207.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 243.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 261.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 279.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 297.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 333.0deg; --rot-x: 52.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 351.0deg; --rot-x: 52.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 18;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 22.5deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 67.5deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 112.5deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 157.5deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 202.5deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 247.5deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 292.5deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: 60.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 337.5deg; --rot-x: 60.0deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 19;">
+                    <div class="title tile" style="--rot-y: 15.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 75.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 105.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 165.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 195.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 255.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 285.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: 67.5deg;"></div>
+                    <div class="title tile" style="--rot-y: 345.0deg; --rot-x: 67.5deg;"></div>
+                </div>
+                <div class="hex-row" style="--row: 20;">
+                    <div class="title tile" style="--rot-y: 0.0deg; --rot-x: 75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 45.0deg; --rot-x: 75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 90.0deg; --rot-x: 75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 135.0deg; --rot-x: 75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 180.0deg; --rot-x: 75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 225.0deg; --rot-x: 75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 270.0deg; --rot-x: 75.0deg;"></div>
+                    <div class="title tile" style="--rot-y: 315.0deg; --rot-x: 75.0deg;"></div>
+                </div>
+            </div>
+
+            <div class="light-system">
+                <div class="orbit-ring"></div>
+                <div class="light-rotor">
+                    <div class="light-source"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
