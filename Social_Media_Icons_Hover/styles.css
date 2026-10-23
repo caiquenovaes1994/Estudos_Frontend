@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #4f5352;
+    margin: 0;
+}
+
+.social-wrapper {
+    display: flex;
+    gap: 25px;
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon:hover {
+    transform: translateY(-10px) scale(1.15);
+    color: #fff;
+}
+
+.facebook:hover {
+    background-color: #1877f2;
+    box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4);
+}
+
+.twitter:hover {
+    background-color: #000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    box-shadow: -6px 12px 24px rgba(253, 89, 73, 0.45),
+        0px 10px 20px rgba(214, 36, 159, 0.45),
+        6px 8px 24px rgba(40, 90, 235, 0.35);
+}
+
+.linkedin:hover {
+    background-color: #0a66c2;
+    box-shadow: 0 10px 20px rgba(10, 102, 194, 0.4);
+}
+
+.youtube:hover {
+    background-color: #ff0000;
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
+}
+
+.tiktok:hover {
+    background: linear-gradient(135deg, #fe2c55 0%, #25f4ee 100%);
+    color: #000;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: initial;
+    box-shadow: -5px 10px 20px rgba(254, 44, 85, 0.4),
+        5px 10px 20px rgba(37, 244, 238, 0.4);
+}
+
+.whatsapp:hover {
+    background-color: #25D366;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+}
+
+.telegram:hover {
+    background-color: #24A1DE;
+    box-shadow: 0 10px 20px rgba(36, 161, 222, 0.4);
+}
+
+.github:hover {
+    background-color: #333;
+    box-shadow: 0 10px 20px rgba(51, 51, 51, 0.4);
+}

@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+.flip-text {
+    display: flex;
+    perspective: 300px;
+}
+
+.flip-text span {
+    position: relative;
+    width: 0.65em;
+    height: 1.2em;
+    font: 800 3rem sans, sans-serif;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    transition-delay: calc((sibling-index() - 1) * 0.05s);
+}
+
+.flip-text span::before,
+.flip-text span::after {
+    content: attr(data-letter);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    backface-visibility: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-text span::before {
+    color: #fff;
+}
+
+.flip-text span::after {
+    color: #00eaff;
+    transform: rotateX(180deg);
+}
+
+.flip-text:hover span {
+    transform: rotateX(180deg);
+}
