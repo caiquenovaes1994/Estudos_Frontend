@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+    <defs>
+        <linearGradient id="logoGradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#3d7af5" />
+            <stop offset="1" stop-color="#1d4ed8" />
+        </linearGradient>
+    </defs>
+    <rect width="32" height="32" rx="8" fill="url(#logoGradient)" />
+    <path d="M9 10C9 9.44772 9.44772 9 10 9H14C14.5523 9 15 9.44772 15 10V14C15 14.5523 14.5523 15 14 15H10C9.44772 15 9 14.5523 9 14V10Z" fill="white" />
+    <path d="M17 10C17 9.44772 17.4477 9 18 9H22C22.5523 9 23 9.44772 23 10V14C23 14.5523 22.5523 15 22 15H18C17.4477 15 17 14.5523 17 14V10Z" fill="white" fill-opacity="0.75" />
+    <path d="M9 18C9 17.4477 9.44772 17 10 17H14C14.5523 17 15 17.4477 15 18V22C15 22.5523 14.5523 23 14 23H10C9.44772 23 9 22.5523 9 22V18Z" fill="white" fill-opacity="0.75" />
+    <path d="M17 18C17 17.4477 17.4477 17 18 17H22C22.5523 17 23 17.4477 23 18V22C23 22.5523 22.5523 23 22 23H18C17.4477 23 17 22.5523 17 22V18Z" fill="white" />
+</svg>

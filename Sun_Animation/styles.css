@@ -1,0 +1,37 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: skyblue;
+}
+
+.background {
+    height: 70%;
+    width: 100%;
+    background-color: rgb(43, 187, 43);
+    position: absolute;
+    top: 40%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.ball {
+    width: 100px;
+    height: 100px;
+    background: orange;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgb(177, 132, 9);
+    animation: bounce 3s infinite ease;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-200px);
+    }
+}
