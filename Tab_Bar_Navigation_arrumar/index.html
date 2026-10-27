@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Bar Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,500,700&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="phone">
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a class="navigation__link active" href="#home">
+                            <i class="navigation__icon" data-feather="home"></i>
+                            <span class="navigation__text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="#search">
+                            <i class="navigation__icon" data-feather="search"></i>
+                            <span class="navigation__text">Search</span>
+                        </a>
+                    </li>
+
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="#categories">
+                            <i class="navigation__icon" data-feather="layers"></i>
+                            <span class="navigation__text">Categories</span>
+                        </a>
+                    </li>
+
+                    <li class="navigation__item">
+                        <a class="navigation__link" href="#likes">
+                            <i class="navigation__icon" data-feather="heart"></i>
+                            <span class="navigation__text">Likes</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
