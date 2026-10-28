@@ -1,0 +1,139 @@
+:root {
+    --widget-color-primary: #5b4aff;
+    --widget-sidebar-width: 136px;
+    --widget-menu-height: 184px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    font-family: "Euclid Circular A", "Poppins";
+    background: #a3afeb;
+    color: #9a98ab;
+}
+
+.widget-card {
+    display: flex;
+    padding: 0 12px;
+    width: 440px;
+    height: var(--widget-menu-height);
+    border-radius: 10px;
+    background: #1f2027;
+}
+
+.buttons {
+    padding-top: 12px;
+    width: var(--widget-sidebar-width);
+}
+
+.buttons label {
+    font-size: 12px;
+    width: 100%;
+    height: 40px;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: opacity 0.3s;
+}
+
+.buttons label:hover {
+    opacity: 1;
+    color: #f9f9f9;
+    background: rgb(255 255 255 / 3%);
+}
+
+.buttons span {
+    font-size: 16px;
+}
+
+#tab-home:checked ~ .buttons label[for="tab-home"],
+#tab-security:checked ~ .buttons label[for="tab-security"],
+#tab-stacks:checked ~ .buttons label[for="tab-stacks"],
+#tab-settings:checked ~ .buttons label[for="tab-settings"] {
+    background: var(--widget-2-color-primary);
+    color: #fff;
+    opacity: 1;
+}
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+}
+
+.wrapper::before, .wrapper::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    width: 100%;
+    height: 36px;
+}
+
+.wrapper::before {
+    top: 0;
+    background: linear-gradient(#1f2027, transparent);
+}
+
+.wrapper::after {
+    bottom: 0;
+    background: linear-gradient(transparent, #1f2027);
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.6s;
+}
+
+#tab-home:checked ~ .wrapper .content {
+    transform: translateY(0);
+}
+
+#tab-security:checked ~ .wrapper .content {
+    transform: translateY(calc(-1 * var(--widget-menu-height)));
+}
+
+#tab-stacks:checked ~ .wrapper .content {
+  transform: translateY(calc(-2 * var(--widget-menu-height)));
+}
+
+#tab-settings:checked ~ .wrapper .content {
+  transform: translateY(calc(-3 * var(--widget-menu-height)));
+}
+
+.block {
+    height: var(--widget-menu-height);
+    padding: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.block h2 {
+    margin: 8px 0 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #f9f9f9;
+}
+
+.block p {
+    font-size: 13px;
+    line-height: 1;
+}
