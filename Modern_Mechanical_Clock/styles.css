@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 45%, #0c223f 0%, #051224 100%);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 22px;
+    border-radius: 22px;
+    border: 1px solid rgba(173, 204, 235, 0.2);
+    pointer-events: none;
+}
+
+.clock {
+    position: relative;
+    width: min(84vw, 520px);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.55));
+}
+
+.clock::after {
+    content: "";
+    position: absolute;
+    bottom: -34px;
+    left: 12%;
+    right: 12%;
+    height: 36px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 72%);
+    filter: blur(6px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bezel {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.bezel circle {
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 2040;
+    animation: draw 3.4s ease both;
+}
+
+.bezel .ring-outer {
+    stroke: url(#bezel-outer);
+    stroke-width: 7;
+}
+
+.bezel .ring-main {
+    stroke: url(#bezel-main);
+    stroke-width: 18;
+    stroke-dasharray: 2011;
+}
+
+.bezel .ring-inner {
+    stroke: url(#bezel-inner);
+    stroke-width: 10;
+}
+
+.bezel .ring-lip {
+    stroke: rgba(185, 204, 220, 0.42);
+    stroke-width: 2.5;
+}
+
+@keyframes draw {
+    from {
+        stroke-dashoffset: 2040;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.dial {
+    position: relative;
+    width: 88.8%;
+    height: 88.8%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 32%, #193754 0%, #0c2138 54%, #061220 100%);
+    box-shadow:
+        inset 0 10px 28px rgba(0, 0, 0, 0.85),
+        inset 0 -6px 20px rgba(0, 0, 0, 0.7),
+        inset 0 0 12px rgba(0, 0, 0, 0.8);
+    animation: reveal 1s 2.5s both;
+    z-index: 2;
+}
+
+.dial::before,
+.dial::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.dial::before {
+    inset: 1.5%;
+    border: 1px solid rgba(165, 192, 216, 0.16);
+}
+
+.dial::after {
+    inset: 4.5%;
+    border: 1px solid rgba(165, 192, 216, 0.22);
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.markers {
+    position: absolute;
+    inset: 0;
+}
+
+.marker {
+    position: absolute;
+    inset: 0;
+    rotate: calc(var(--i) * 6deg);
+    animation: settle 0.48s both;
+    animation-delay: calc(3.2s + var(--i) * 32ms);
+    pointer-events: none;
+}
+
+.marker::before {
+    content: "";
+    display: block;
+    margin: 3.35% auto 0;
+    width: 1.5px;
+    height: 2.3%;
+    background: rgba(189, 203, 214, 0.46);
+    border-radius: 1px;
+}
+
+.marker.major::before {
+    margin-top: 3.1%;
+    width: 5px;
+    height: 4.1%;
+    background: #eef5fb;
+    border-radius: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.marker.cardinal::before {
+    width: 5.5px;
+    height: 4.6%;
+}
+
+@keyframes settle {
+    from {
+        opacity: 0;
+        translate: 0 -40px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.numbers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.num {
+    position: absolute;
+    color: #eef5fb;
+    font-size: clamp(18px, 4.2vw, 26px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    animation: settle 0.5s both;
+}
+
+.num-12 {
+    top: 9.2%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 3.3s;
+}
+
+.num-3 {
+    right: 10.2%;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 3.8s;
+}
+
+.num-6 {
+    bottom: 9.2%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 4.3s;
+}
+
+.num-9 {
+    left: 10.2%;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 4.8s;
+}
+
+.hand {
+    position: absolute;
+    transform-origin: bottom center;
+    background: transparent;
+    animation: assemble 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay);
+    pointer-events: none;
+}
+
+.hour {
+    --delay: 5.3s;
+    width: 13px;
+    height: 26%;
+    left: calc(50% - 6.5px);
+    bottom: calc(50% - 6px);
+    transform-origin: 50% calc(100% - 6px);
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.6));
+    z-index: 4;
+}
+
+.minute {
+    --delay: 5.55s;
+    width: 11px;
+    height: 38.5%;
+    left: calc(50% - 5.5px);
+    bottom: calc(50% - 6px);
+    transform-origin: 50% calc(100% - 6px);
+    filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.6));
+    z-index: 5;
+}
+
+.hour::before,
+.minute::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #1bc597, #32edc0 50%, #19ba8e);
+    clip-path: polygon(50% 0%, 100% 9%, 74% 100%, 26% 100%, 0% 9%);
+}
+
+.hour::after,
+.minute::after {
+    content: "";
+    position: absolute;
+    top: 8%;
+    bottom: 10%;
+    left: 33%;
+    right: 33%;
+    background: #a9ffeb;
+    clip-path: polygon(50% 0%, 100% 6%, 82% 100%, 18% 100%, 0% 6%);
+    opacity: 0.9;
+}
+
+.second {
+    --delay: 5.8s;
+    width: 4px;
+    height: 50%;
+    left: calc(50% - 2px);
+    bottom: 43%;
+    transform-origin: 50% 86%;
+    background: transparent;
+    filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.65));
+    z-index: 6;
+}
+
+.second::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #e28047, #ff995d 35%, #ffc099);
+    clip-path: polygon(50% 0%, 66% 0%, 100% 100%, 0% 100%, 34% 0%);
+    border-radius: 2px;
+}
+
+.pin {
+    --delay: 5.95s;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: calc(50% - 11px);
+    top: calc(50% - 11px);
+    border-radius: 50%;
+    background: #0b1826;
+    border: 2px solid #e6f0f7;
+    box-shadow:
+        0 0 0 2px rgba(40, 226, 176, 0.75),
+        0 4px 8px rgba(0, 0, 0, 0.75);
+    animation: assemble 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--delay);
+    z-index: 7;
+}
+
+.pin::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ffb688, #ff995d 65%, #d97338);
+}
+
+@keyframes assemble {
+    from {
+        translate: 0 -90px;
+        opacity: 0;
+    }
+    to {
+        translate: 0 0;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    body::before {
+        inset: 12px;
+        border-radius: 16px;
+    }
+
+    .hour {
+        width: 10px;
+        left: calc(50% - 5px);
+    }
+
+    .minute {
+        width: 8.5px;
+        left: calc(50% - 4.25px);
+    }
+
+    .pin {
+        width: 18px;
+        height: 18px;
+        left: calc(50% - 9px);
+        top: calc(50% - 9px);
+    }
+
+    .pin::after {
+        inset: 3px;
+    }
+}

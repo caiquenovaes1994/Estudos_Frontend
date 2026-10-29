@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Mechanical Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="clock">
+        <svg class="bezel" viewBox="0 0 660 660" aria-hidden="true">
+            <defs>
+                <linearGradient id="bezel-outer" x1="660" y1="330" x2="0" y2="330" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#26313d" />
+                    <stop offset="25%" stop-color="#7c8b99" />
+                    <stop offset="50%" stop-color="#cdd8e2" />
+                    <stop offset="75%" stop-color="#748391" />
+                    <stop offset="100%" stop-color="#1e2732" />
+                </linearGradient>
+                <linearGradient id="bezel-main" x1="660" y1="330" x2="0" y2="330" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#434f5c" />
+                    <stop offset="20%" stop-color="#9aa8b6" />
+                    <stop offset="50%" stop-color="#f2f7fb" />
+                    <stop offset="80%" stop-color="#96a5b3" />
+                    <stop offset="100%" stop-color="#3a4552" />
+                </linearGradient>
+                <linearGradient id="bezel-inner" x1="660" y1="330" x2="0" y2="330" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#1b242f" />
+                    <stop offset="25%" stop-color="#5a6877" />
+                    <stop offset="50%" stop-color="#aebcc8" />
+                    <stop offset="75%" stop-color="#546270" />
+                    <stop offset="100%" stop-color="#17202a" />
+                </linearGradient>
+            </defs>
+            <circle class="ring-outer" cx="330" cy="330" r="324" transform="rotate(-90 330 330)" />
+            <circle class="ring-main" cx="330" cy="330" r="313" transform="rotate(-90 330 330)" />
+            <circle class="ring-inner" cx="330" cy="330" r="300" transform="rotate(-90 330 330)" />
+            <circle class="ring-lip" cx="330" cy="330" r="293" transform="rotate(-90 330 330)" />
+        </svg>
+
+        <div class="dial">
+            <div class="markers"></div>
+            <div class="numbers">
+                <span class="num num-12">12</span>
+                <span class="num num-3">3</span>
+                <span class="num num-6">6</span>
+                <span class="num num-9">9</span>
+            </div>
+            <i class="hand hour"></i>
+            <i class="hand minute"></i>
+            <i class="hand second"></i>
+            <span class="pin"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
