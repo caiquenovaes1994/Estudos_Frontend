@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #4a5c6a;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blur {
+    font-family: sans-serif;
+    color: #ffb86b;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.blur span {
+    display: inline-block;
+    animation: bl 3s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.12s);
+}
+
+@keyframes bl {
+    0% {
+        opacity: 0;
+        filter: blur(12px);
+        transform: translateY(20px) scale(0.6);
+    }
+    25%, 75% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: none;
+    }
+    100% {
+        opacity: 0;
+        filter: blur(12px);
+        transform: translateY(-20px) scale(1.4);
+    }
+}
