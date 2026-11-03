@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrono - Live Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="clock">
+        <header class="top">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL TIMEPIECE</p>
+                <h1>CHRONO<span>.</span></h1>
+            </div>
+            <span class="live">LIVE</span>
+        </header>
+
+        <section class="readout">
+            <div class="digits">
+                <div class="units">
+                    <span id="hours">00</span>
+                    <small>HOURS</small>
+                </div>
+                <span class="colon">:</span>
+                <div class="units">
+                    <span id="minutes">00</span>
+                    <small>MINUTES</small>
+                </div>
+                <span class="colon">:</span>
+                <div class="units">
+                    <span id="seconds">00</span>
+                    <small>SECONDS</small>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="dial">
+            <div class="face">
+                <div id="hand" class="hand"></div>
+                <div class="pin"></div>
+            </div>
+            <p class="dial-caption">CONTINUOUS SWEEP</p>
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="details">
+            <p id="date">Loading Date</p>
+            <p id="zone">LOCAL TIME</p>
+        </div>
+        <button id="modeBtn" type="button" aria-pressed="false">
+            24H MODE
+        </button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
