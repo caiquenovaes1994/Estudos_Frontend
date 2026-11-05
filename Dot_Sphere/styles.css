@@ -1,0 +1,153 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    perspective: 24em;
+}
+
+* {
+    transform-style: preserve-3d;
+}
+
+.scene {
+    position: relative;
+    * { position: absolute; }
+}
+
+.bigDots {
+    animation: rotate 32s infinite linear reverse;
+
+    i {
+        inset: -2.5em;
+        background-image: radial-gradient(circle at top, hsl(calc(var(--i) * 120) 100% 75%), #000);
+        border-radius: 50%;
+        translate: calc(var(--i) * 6em);
+        box-shadow: 0 0 1em #000;
+        animation: rotate 32s infinite linear;
+    }
+}
+
+.dots {
+    --delay: calc(pow(var(--d), 2.5) * -0.005s - var(--d) * 0.05s);
+    animation-composition: add;
+    animation: rotate 6s var(--delay) infinite linear, rotate 32s infinite linear reverse;
+
+    i {
+        --n: calc(var(--i) / 7.5 - 1);
+        --translateX: calc(var(--n) * 12em);
+        --translateY: calc(sin((var(--i) + 1) / 17 * 360deg) * 12em);
+
+        inset: calc(var(--d) * -0.05em - 0.2em);
+        background-image: radial-gradient(circle at top, hsl(calc(var(--n) * 120) 100% 75%), #000);
+        border-radius: 50%;
+        box-shadow: 0 0 1em #000;
+        animation-composition: add;
+        animation: translate 3s var(--delay) infinite ease-in-out alternate, rotate 6s var(--delay) infinite linear reverse, rotate 32s infinite linear;
+    }
+}
+
+@keyframes rotate {
+    to { rotate: y 360deg; }
+}
+
+@keyframes translate {
+    from { translate: var(--translateX) var(--translateY); }
+    to { translate: var(--translateX) calc(var(--translateY) * -1); }
+}
+
+.brand {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 5vh;
+    z-index: 10;
+    text-align: center;
+    pointer-events: none;
+    font-family: 'Poppins', sans-serif;
+    filter: drop-shadow(0 0 10px #000) drop-shadow(0 0 20px #000)
+}
+
+.brand-name {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    background: linear-gradient(90deg, hsl(0 100% 75%), hsl(120 100% 75%), hsl(240 100% 75%), hsl(0 100% 75%)
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: brand-shift 5s linear infinite;
+}
+
+.follow {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9em;
+    font-size: clamp(0.7rem, 1.6vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.follow-text {
+    background: linear-gradient(96deg, #666 0%, #fff 40%, #fff 60%, #666 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: follow-shimmer 2.2s linear infinite, follow-pulse 1.4s ease-in-out infinite;
+}
+
+.brand-dots {
+    display: inline-flex;
+    gap: 0.35em;
+}
+
+.brand-dots i {
+    position: static;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: hsl(0 100% 75%);
+    animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.brand-dots i:nth-child(2) {
+    background: hsl(120 100% 75%);
+    animation-delay: 0.15s;
+}
+
+.brand-dots i:nth-child(3) {
+    background: hsl(240 100% 75%);
+    animation-delay: 0.3s;
+}
+
+@keyframes brand-shift {
+    to { background-position: -300% 0; }
+}
+
+@keyframes follow-shimmer {
+    from { background-position: 150% 0; }
+    to { background-position: -150% 0; }
+}
+
+@keyframes follow-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes dot-bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(-0.7em); opacity: 1; }
+}

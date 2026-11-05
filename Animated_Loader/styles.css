@@ -1,0 +1,145 @@
+body {
+    background-color: #141414;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loader {
+    -webkit-perspective: 700px;
+    perspective: 700px;
+}
+
+.loader > span {
+    font-size: 130px;
+    display: inline-block;
+    animation: flip 2.6s infinite linear;
+    transform-origin: 0 70%;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    color: #00b376;
+}
+
+@keyframes flip {
+    35% { transform: rotateX(360deg); }
+    100% { transform: rotateX(360deg); }
+}
+
+.loader > span:nth-child(even) {
+    color: #fff;
+}
+
+.loader > span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.loader > span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.loader > span:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.loader > span:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+.loader > span:nth-child(6) {
+    animation-delay: 1.5s;
+}
+
+.loader > span:nth-child(7) {
+    animation-delay: 1.8s;
+}
+
+body {
+    flex-direction: column;
+    gap: 48px;
+}
+
+.brand {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+
+.brand-name {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    background: linear-gradient(90deg, #00b376, #ffffff, #00b376);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: brand-shift 4s linear infinite;
+}
+
+.follow {
+    margin: 8px 0 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9em;
+    font-size: clamp(0.7rem, 1.6vw, 1rem);
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.follow-text {
+    background: linear-gradient(96deg, #4a4a4a 0%, #fff 40%, #00b376 60%, #4a4a4a 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: follow-shimmer 2.2s linear infinite, follow-pulse 1.4s ease-in-out infinite;
+}
+
+.brand-dots {
+    display: inline-flex;
+    gap: 0.35em;
+}
+
+.brand-dots i {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: #00b376;
+    animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.brand-dots i:nth-child(2) {
+    background: #fff;
+    animation-delay: 0.15s;
+}
+
+.brand-dots i:nth-child(3) {
+    background: #00b376;
+    animation-delay: 0.3s;
+}
+
+@keyframes brand-shift {
+    to { background-position: -300% 0; }
+}
+
+@keyframes follow-shimmer {
+    from { background-position: 150% 0; }
+    to { background-position: -150% 0; }
+}
+
+@keyframes follow-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes dot-bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(-0.7em); opacity: 1; }
+}
