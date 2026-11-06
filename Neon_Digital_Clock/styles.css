@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at 50% 45%, #051329 0%, #020713 45%, #000308 100%);
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px;
+}
+
+.clock-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Primary Clock Display */
+.clock {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 30px 0 30px;
+    position: relative;
+    z-index: 5;
+    user-select: none;
+}
+
+/* 7-Segment Digit Container */
+.digit {
+    position: relative;
+    width: 84px;
+    height: 160px;
+}
+
+/* Base Segment (Unlit state - visible dark slate/navy LED element) */
+.seg {
+    position: absolute;
+    background-color: #0c1e34;
+    border: 1px solid rgba(30, 68, 110, 0.45);
+    border-radius: 3px;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.7);
+    transition: background-color 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+/* Illuminated Segment (Lit neon state) */
+.seg.on {
+    background-color: #e6f8ff;
+    border-color: #ffffff;
+    box-shadow: 
+        0 0 6px #7fe3ff,
+        0 0 16px #24a0ff,
+        0 0 32px #0066ff,
+        0 0 55px rgba(0, 102, 255, 0.8),
+        0 0 85px rgba(0, 80, 230, 0.45);
+    z-index: 2;
+}
+
+/* Horizontal Segments: a (top), g (middle), d (bottom) */
+.a, .g, .d {
+    left: 15px;
+    width: 54px;
+    height: 12px;
+}
+
+.a {
+    top: 0;
+}
+
+.g {
+    top: 74px;
+}
+
+.d {
+    bottom: 0;
+}
+
+/* Vertical Segments: f (top-left), b (top-right), e (bottom-left), c (bottom-right) */
+.b, .c, .e, .f {
+    width: 12px;
+    height: 56px;
+}
+
+.f {
+    top: 15px;
+    left: 0;
+}
+
+.b {
+    top: 15px;
+    right: 0;
+}
+
+.e {
+    top: 89px;
+    left: 0;
+}
+
+.c {
+    top: 89px;
+    right: 0;
+}
+
+/* Colon Separator */
+.separator {
+    position: relative;
+    width: 30px;
+    height: 160px;
+    margin: 0 4px;
+}
+
+.dot {
+    position: absolute;
+    left: 9px;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background-color: #0c1e34;
+    border: 1px solid rgba(30, 68, 110, 0.45);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.7);
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dot.dot-top {
+    top: 37px;
+}
+
+.dot.dot-bottom {
+    top: 111px;
+}
+
+.dot.on {
+    background-color: #e6f8ff;
+    border-color: #ffffff;
+    box-shadow: 
+        0 0 6px #7fe3ff,
+        0 0 16px #24a0ff,
+        0 0 30px #0066ff,
+        0 0 50px rgba(0, 102, 255, 0.8);
+}
+
+/* Floor & Ground Reflection */
+.floor {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+/* Neon glow pool on the floor */
+.floor-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 850px;
+    height: 150px;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0, 140, 255, 0.48) 0%, rgba(0, 85, 210, 0.25) 30%, rgba(0, 40, 140, 0.08) 60%, transparent 80%);
+    filter: blur(16px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Subtle light bounce at the baseline horizon */
+.floor-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 760px;
+    height: 2px;
+    background: radial-gradient(ellipse at center, rgba(140, 230, 255, 0.45) 0%, rgba(0, 130, 255, 0.18) 50%, transparent 85%);
+    filter: blur(1px);
+    z-index: 2;
+}
+
+/* Mirror reflection of the clock */
+.clock.reflection {
+    position: absolute;
+    top: 0;
+    height: 160px;
+    padding: 0 30px;
+    transform: scaleY(-1);
+    transform-origin: center center;
+    filter: blur(1.8px);
+    opacity: 0.68;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.05) 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0.05) 75%, transparent 100%);
+    pointer-events: none;
+    z-index: 3;
+}
